@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slotrun Güncel Giriş | Bulmacayı Çöz, Adrese Ulaş</title>
+<meta name="description" content="Slotrun güncel giriş adresine ulaşmak için bulmacayı çöz! 2026 Slotrun yeni giriş kapısı bulmaca oyunu ile açılıyor.">
+<meta name="keywords" content="slotrun güncel giriş, slotrun giriş, slotrun yeni adres, slotrun 2026">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --neon-gold: #ffd700;
+    --neon-red: #ff2244;
+    --neon-cyan: #00ffe7;
+    --bg-deep: #05050f;
+    --bg-card: #0d0d1e;
+    --bg-panel: #11112a;
+    --text-main: #e8e8ff;
+    --text-dim: #6677aa;
+    --glow-gold: 0 0 8px #ffd700, 0 0 20px #ffd70066;
+    --glow-red: 0 0 8px #ff2244, 0 0 20px #ff224466;
+    --glow-cyan: 0 0 8px #00ffe7, 0 0 20px #00ffe766;
+  }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Share Tech Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* BACKGROUND STARS */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 15%, #ffffff22 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 40%, #ffffff18 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 25%, #ffffff15 0%, transparent 100%),
+      radial-gradient(1px 1px at 35% 70%, #ffffff20 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 60%, #ffffff12 0%, transparent 100%),
+      radial-gradient(2px 2px at 10% 80%, #ffd70033 0%, transparent 100%),
+      radial-gradient(2px 2px at 60% 90%, #ff224433 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* SCANLINES */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 2px,
+      rgba(0,0,0,0.08) 2px,
+      rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+  }
+
+  /* HEADER */
+  header {
+    text-align: center;
+    padding: 40px 0 30px;
+    position: relative;
+  }
+
+  .logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(28px, 6vw, 52px);
+    font-weight: 900;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, #ffd700, #ff8800, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 0 16px #ffd70088);
+    animation: pulse-logo 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-logo {
+    0%, 100% { filter: drop-shadow(0 0 16px #ffd70088); }
+    50% { filter: drop-shadow(0 0 28px #ffd700cc); }
+  }
+
+  .tagline {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--neon-cyan);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: var(--glow-cyan);
+    opacity: 0.85;
+  }
+
+  .header-divider {
+    margin: 20px auto 0;
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--neon-gold), transparent);
+    box-shadow: var(--glow-gold);
+  }
+
+  /* PROGRESS BAR */
+  .progress-wrap {
+    background: var(--bg-panel);
+    border: 1px solid #ffffff11;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .progress-label {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+
+  .progress-bar-outer {
+    flex: 1;
+    height: 6px;
+    background: #ffffff11;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-bar-inner {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--neon-red), var(--neon-gold));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+    box-shadow: var(--glow-gold);
+  }
+
+  .progress-count {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    color: var(--neon-gold);
+    white-space: nowrap;
+  }
+
+  /* CARD */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid #ffffff18;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-gold) 50%, transparent);
+    opacity: 0.4;
+  }
+
+  .card.solved {
+    border-color: #ffd70033;
+    background: linear-gradient(135deg, #0d0d1e 0%, #111a0d 100%);
+  }
+
+  .card.solved::before {
+    background: linear-gradient(90deg, transparent, #00ff8866 50%, transparent);
+    opacity: 1;
+  }
+
+  /* QUESTION NUMBER */
+  .q-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--neon-red);
+    text-shadow: var(--glow-red);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .q-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-main);
+    margin-bottom: 20px;
+  }
+
+  .q-text strong {
+    color: var(--neon-gold);
+    text-shadow: var(--glow-gold);
+  }
+
+  /* HINT */
+  .hint-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--neon-cyan);
+    background: #00ffe710;
+    border: 1px solid #00ffe722;
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin-bottom: 16px;
+    cursor: default;
+  }
+
+  /* OPTIONS */
+  .options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  @media (max-width: 520px) {
+    .options { grid-template-columns: 1fr; }
+  }
+
+  .opt-btn {
+    background: var(--bg-panel);
+    border: 1px solid #ffffff18;
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--text-main);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .opt-btn::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--neon-gold);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .opt-btn:hover:not(:disabled) {
+    border-color: var(--neon-gold);
+    background: #ffd70010;
+    box-shadow: var(--glow-gold);
+    transform: translateX(2px);
+  }
+
+  .opt-btn:hover:not(:disabled)::before { opacity: 1; }
+
+  .opt-btn.correct {
+    border-color: #00ff88;
+    background: #00ff8810;
+    color: #00ff88;
+    box-shadow: 0 0 10px #00ff8844;
+    cursor: default;
+  }
+
+  .opt-btn.wrong {
+    border-color: var(--neon-red);
+    background: #ff224410;
+    color: #ff4466;
+    cursor: default;
+    opacity: 0.7;
+  }
+
+  .opt-btn:disabled { cursor: default; }
+
+  .opt-letter {
+    color: var(--neon-gold);
+    margin-right: 8px;
+    font-weight: bold;
+  }
+
+  .opt-btn.correct .opt-letter { color: #00ff88; }
+  .opt-btn.wrong .opt-letter { color: #ff4466; }
+
+  /* FEEDBACK */
+  .feedback {
+    margin-top: 14px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.5;
+    display: none;
+  }
+
+  .feedback.show { display: block; }
+  .feedback.correct-fb {
+    background: #00ff8810;
+    border: 1px solid #00ff8830;
+    color: #00ff88;
+  }
+  .feedback.wrong-fb {
+    background: #ff224410;
+    border: 1px solid #ff224430;
+    color: #ff6688;
+  }
+
+  /* SOLVED BADGE */
+  .solved-badge {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #00ff88;
+    letter-spacing: 2px;
+    margin-top: 12px;
+  }
+  .solved-badge.show { display: flex; }
+  .solved-badge::before {
+    content: '✓';
+    width: 18px; height: 18px;
+    background: #00ff8820;
+    border: 1px solid #00ff8860;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+  }
+
+  /* REVEAL SECTION */
+  #reveal-section {
+    display: none;
+    background: var(--bg-card);
+    border: 1px solid var(--neon-gold);
+    border-radius: 16px;
+    padding: 36px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: reveal-in 0.6s ease;
+    box-shadow: var(--glow-gold), inset 0 0 40px #ffd70008;
+  }
+
+  @keyframes reveal-in {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  #reveal-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, #ffd70010 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .reveal-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    animation: spin-icon 1s ease;
+  }
+
+  @keyframes spin-icon {
+    from { transform: rotateY(-90deg); opacity: 0; }
+    to { transform: rotateY(0deg); opacity: 1; }
+  }
+
+  .reveal-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    text-shadow: var(--glow-cyan);
+  }
+
+  .reveal-subtitle {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+  }
+
+  .address-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #000014;
+    border: 1px solid var(--neon-gold);
+    border-radius: 10px;
+    padding: 18px 24px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    box-shadow: var(--glow-gold);
+  }
+
+  .address-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(16px, 4vw, 26px);
+    font-weight: 700;
+    color: var(--neon-gold);
+    letter-spacing: 2px;
+    text-shadow: var(--glow-gold);
+    animation: flicker 4s ease-in-out infinite;
+  }
+
+  @keyframes flicker {
+    0%, 90%, 100% { opacity: 1; }
+    92% { opacity: 0.7; }
+    94% { opacity: 1; }
+    96% { opacity: 0.5; }
+    98% { opacity: 1; }
+  }
+
+  .copy-btn {
+    background: #ffd70015;
+    border: 1px solid var(--neon-gold);
+    color: var(--neon-gold);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .copy-btn:hover {
+    background: var(--neon-gold);
+    color: #000;
+    box-shadow: var(--glow-gold);
+  }
+
+  .go-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #000;
+    background: linear-gradient(135deg, var(--neon-gold), #ff8800);
+    border: none;
+    border-radius: 8px;
+    padding: 14px 32px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: var(--glow-gold);
+    margin-top: 8px;
+  }
+
+  .go-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px #ffd700, 0 0 40px #ffd70066;
+  }
+
+  .confetti-row {
+    margin-top: 24px;
+    font-size: 24px;
+    letter-spacing: 6px;
+    animation: confetti-bounce 0.8s ease;
+  }
+
+  @keyframes confetti-bounce {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(1); }
+  }
+
+  /* INFO STRIP */
+  .info-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  @media (max-width: 520px) {
+    .info-strip { grid-template-columns: 1fr; }
+  }
+
+  .info-item {
+    background: var(--bg-panel);
+    border: 1px solid #ffffff10;
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+
+  .info-item .i-icon { font-size: 22px; margin-bottom: 6px; }
+  .info-item .i-label {
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .info-item .i-val {
+    font-size: 12px;
+    color: var(--neon-cyan);
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 30px 0 10px;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 2;
+  }
+
+  footer a { color: var(--text-dim); text-decoration: none; }
+
+  /* PARTICLES (CSS only) */
+  .particle {
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 0;
+    animation: float-up linear infinite;
+    opacity: 0;
+  }
+
+  @keyframes float-up {
+    0% { transform: translateY(100vh) scale(1); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.2; }
+    100% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
+  }
+
+  /* SLOT REEL ANIMATION for wrong answer */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(6px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+  }
+
+  .shake { animation: shake 0.4s ease; }
+
+  /* SLOT SYMBOLS floating header deco */
+  .slot-symbols {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    letter-spacing: 12px;
+    opacity: 0.25;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  /* scroll reveal */
+  .card {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.3s;
+  }
+  .card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- Floating particles -->
+<div class="particle" style="left:10%;width:4px;height:4px;background:#ffd700;animation-duration:12s;animation-delay:0s;"></div>
+<div class="particle" style="left:25%;width:3px;height:3px;background:#ff2244;animation-duration:9s;animation-delay:2s;"></div>
+<div class="particle" style="left:50%;width:2px;height:2px;background:#00ffe7;animation-duration:14s;animation-delay:4s;"></div>
+<div class="particle" style="left:70%;width:4px;height:4px;background:#ffd700;animation-duration:11s;animation-delay:1s;"></div>
+<div class="particle" style="left:85%;width:3px;height:3px;background:#ff2244;animation-duration:8s;animation-delay:6s;"></div>
+<div class="particle" style="left:40%;width:2px;height:2px;background:#ffd700;animation-duration:16s;animation-delay:3s;"></div>
+
+<div class="container">
+  <header>
+    <div class="slot-symbols">🎰 💎 🍒 ⭐ 🎰 💰 🍀</div>
+    <div class="logo-text">SLOTRUN</div>
+    <div class="tagline">⚡ Bulmacayı Çöz · Kapıyı Aç · Kazanmaya Başla ⚡</div>
+    <div class="header-divider"></div>
+  </header>
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap">
+    <span class="progress-label">İLERLEME</span>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progressBar"></div>
+    </div>
+    <span class="progress-count"><span id="solvedCount">0</span>/5</span>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div id="questions"></div>
+
+  <!-- REVEAL -->
+  <div id="reveal-section">
+    <div class="reveal-icon">🎰</div>
+    <div class="reveal-title">🔓 Giriş Kapısı Açıldı</div>
+    <div class="reveal-subtitle">Tüm soruları çözdün! İşte güncel Slotrun giriş adresi:</div>
+    <div class="address-display">
+      <span class="address-text" id="addressText"></span>
+      <button class="copy-btn" onclick="copyAddress()">KOPYALA</button>
+    </div>
+    <a href="#" id="goBtn" class="go-btn" target="_blank" rel="noopener">
+      🚀 HEMEN GİRİŞ YAP
+    </a>
+    <div class="confetti-row">🎊 🏆 💎 🎰 🍒 ⭐ 🎊</div>
+
+    <div class="info-strip">
+      <div class="info-item">
+        <div class="i-icon">🔒</div>
+        <div class="i-label">Güvenlik</div>
+        <div class="i-val">SSL Korumalı</div>
+      </div>
+      <div class="info-item">
+        <div class="i-icon">⚡</div>
+        <div class="i-label">Erişim</div>
+        <div class="i-val">7/24 Kesintisiz</div>
+      </div>
+      <div class="info-item">
+        <div class="i-icon">📱</div>
+        <div class="i-label">Platform</div>
+        <div class="i-val">Mobil Uyumlu</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>18+ · Sorumlu Oyna · Yardım için müşteri desteğine ulaşın</p>
+</footer>
+
+<script>
+// ===== GÜNCEL GİRİŞ ADRESİ =====
+// Bu adresi güncellemek için sadece aşağıdaki satırı değiştirin:
+const GUNCEL_ADRES = "slotrun.bet";
+// ================================
+
+const questions = [
+  {
+    q: "Slot oyunlarında <strong>'RTP'</strong> ne anlama gelir?",
+    hint: "💡 İpucu: Oyuncuya geri dönen yüzde",
+    options: [
+      "Real Time Play",
+      "Return To Player",
+      "Random Total Points",
+      "Rapid Transfer Protocol"
+    ],
+    correct: 1,
+    feedback: "✓ Doğru! RTP (Return To Player), oyunun teorik olarak oyuncuya geri ödeme yüzdesidir. %96 RTP = 100₺'de ortalama 96₺ geri ödeme."
+  },
+  {
+    q: "Slotrun gibi platformlarda sık yaşanan giriş sorununun <strong>en yaygın nedeni</strong> nedir?",
+    hint: "💡 İpucu: Türkiye'de internet kısıtlamaları",
+    options: [
+      "Sunucu arızası",
+      "BTK alan adı engeli",
+      "Yanlış şifre",
+      "Tarayıcı sürümü"
+    ],
+    correct: 1,
+    feedback: "✓ Doğru! BTK (Bilgi Teknolojileri Kurumu) zaman zaman alan adlarını engelleyebilir. Bu yüzden siteler güncel giriş adreslerini düzenli değiştirir."
+  },
+  {
+    q: "Casino platformlarında <strong>'Çevrim Şartı'</strong> (wagering requirement) ne demektir?",
+    hint: "💡 İpucu: Bonus'u çekebilmek için...",
+    options: [
+      "Günlük oyun sınırı",
+      "Bonus almadan önce yatırılması gereken tutar",
+      "Bonusu para çekebilmek için oynanması gereken çarpan",
+      "VIP üyelik koşulu"
+    ],
+    correct: 2,
+    feedback: "✓ Doğru! Örneğin 30x çevrim şartıyla 100₺ bonus aldıysan, para çekebilmek için 3.000₺'lik bahis yapman gerekir."
+  },
+  {
+    q: "Güncel giriş adresine ulaşmanın <strong>en güvenilir yolu</strong> hangisidir?",
+    hint: "💡 İpucu: Sosyal medya, Telegram...",
+    options: [
+      "Google'da random site aramak",
+      "Sitenin resmi Telegram kanalı",
+      "Whatsapp grupları",
+      "Arkadaşlardan sormak"
+    ],
+    correct: 1,
+    feedback: "✓ Doğru! Sitenin resmi Telegram kanalı en hızlı ve güvenilir kaynak. Sahte güncel adres sitelerinden uzak durulmalı!"
+  },
+  {
+    q: "Slot oyunlarında <strong>'Scatter'</strong> sembolünün özelliği nedir?",
+    hint: "💡 İpucu: Payline'a gerek yok",
+    options: [
+      "Sadece çizgide geçerliyse sayılır",
+      "Her zaman 5 adet gelmeli",
+      "Reelların herhangi bir yerinde çıkarak kazandırır",
+      "Jackpot'un sabit sembolüdür"
+    ],
+    correct: 2,
+    feedback: "✓ Doğru! Scatter sembolleri payline'a ihtiyaç duymaz — reelda herhangi bir yerde belirledikleri sayıda çıktığında freespin veya bonus tetikler."
+  }
+];
+
+let solved = new Array(questions.length).fill(false);
+
+function buildQuestions() {
+  const container = document.getElementById('questions');
+  const letters = ['A', 'B', 'C', 'D'];
+
+  questions.forEach((q, qi) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.id = `card-${qi}`;
+
+    card.innerHTML = `
+      <div class="q-number">SORU ${qi + 1} / ${questions.length}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="hint-badge">ℹ ${q.hint}</div>
+      <div class="options" id="opts-${qi}">
+        ${q.options.map((opt, oi) => `
+          <button class="opt-btn" onclick="answer(${qi}, ${oi})" id="opt-${qi}-${oi}">
+            <span class="opt-letter">${letters[oi]}.</span>${opt}
+          </button>
+        `).join('')}
+      </div>
+      <div class="feedback" id="fb-${qi}"></div>
+      <div class="solved-badge" id="badge-${qi}">SORU TAMAMLANDI</div>
+    `;
+
+    container.appendChild(card);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.card').forEach(c => observer.observe(c));
+}
+
+function answer(qi, oi) {
+  if (solved[qi]) return;
+
+  const q = questions[qi];
+  const opts = document.querySelectorAll(`#opts-${qi} .opt-btn`);
+  const fb = document.getElementById(`fb-${qi}`);
+  const badge = document.getElementById(`badge-${qi}`);
+  const card = document.getElementById(`card-${qi}`);
+
+  opts.forEach(btn => btn.disabled = true);
+
+  if (oi === q.correct) {
+    opts[oi].classList.add('correct');
+    fb.textContent = q.feedback;
+    fb.className = 'feedback show correct-fb';
+    badge.classList.add('show');
+    card.classList.add('solved');
+    solved[qi] = true;
+    updateProgress();
+  } else {
+    opts[oi].classList.add('wrong');
+    opts[q.correct].classList.add('correct');
+    fb.textContent = `✗ Yanlış cevap. Doğrusu: ${['A','B','C','D'][q.correct]}. ${q.feedback}`;
+    fb.className = 'feedback show wrong-fb';
+    card.classList.add('shake');
+    setTimeout(() => card.classList.remove('shake'), 400);
+
+    // still mark as solved (show answer and move on)
+    solved[qi] = true;
+    setTimeout(() => {
+      badge.classList.add('show');
+      updateProgress();
+    }, 600);
+  }
+}
+
+function updateProgress() {
+  const count = solved.filter(Boolean).length;
+  document.getElementById('solvedCount').textContent = count;
+  const pct = (count / questions.length) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+
+  if (count === questions.length) {
+    setTimeout(showReveal, 800);
+  }
+}
+
+function showReveal() {
+  const section = document.getElementById('reveal-section');
+  const addrText = document.getElementById('addressText');
+  const goBtn = document.getElementById('goBtn');
+
+  addrText.textContent = GUNCEL_ADRES;
+  goBtn.href = 'https://' + GUNCEL_ADRES;
+
+  section.style.display = 'block';
+  section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function copyAddress() {
+  navigator.clipboard.writeText('https://' + GUNCEL_ADRES).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    const orig = btn.textContent;
+    btn.textContent = '✓ KOPYALANDI';
+    btn.style.background = '#00ff8830';
+    btn.style.color = '#00ff88';
+    btn.style.borderColor = '#00ff88';
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.style.background = '';
+      btn.style.color = '';
+      btn.style.borderColor = '';
+    }, 2000);
+  });
+}
+
+buildQuestions();
+</script>
+</body>
+</html>
